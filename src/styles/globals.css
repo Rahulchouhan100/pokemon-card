@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar start --------------  */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+}
+.nav-link > ul {
+  display: flex;
+  gap: 30px;
+}
+.nav-link > ul > a > li {
+  list-style: none;
+}
+
+.nav-link > ul > a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Navbar end -----------  */
+
+/* Main pokeomon page start -----------------  */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+  padding: 0 8%;
+  gap: 2rem;
+  margin-top: 50px;
+}
+.card {
+  border: 1px solid red;
+  padding: 10px;
+  cursor: pointer;
+}
+.card:hover {
+  background-color: red;
+}
+.img-container {
+  /* border: 1px solid red; */
+  width: 200px;
+  height: 200px;
+  /* background-color: red; */
+  padding: 20px;
+  /* object-fit: fill; */
+}
+.pokemon-img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* main pokemon page end ---  */
