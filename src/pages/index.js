@@ -1,8 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
+import { ApolloProvider, gql, useQuery } from "@apollo/client";
 import client from "@/lib/graphql";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import Link from "next/link";
 
 const GET_POKEMONS = gql`
   query Pokemons($first: Int!) {
@@ -51,26 +52,27 @@ export default function Home() {
       <Navbar />
       <div className="container">
         {data.pokemons.map((pokemon) => (
-          <div
-            className="card"
-            key={pokemon.id}
-            pokemon={pokemon}
-            onClick={() => handleCardClick(pokemon)}
-          >
-            <div className="img-container">
-              <img
-                src={pokemon.image}
-                alt={pokemon.name}
-                className="pokemon-img"
-              />
+          <Link href={`/pokepage?id=${pokemon.id}`} key={pokemon.id}>
+            <div
+              className="card"
+              key={pokemon.id}
+              pokemon={pokemon}
+              onClick={() => handleCardClick(pokemon)}
+            >
+              <div className="img-container">
+                <img
+                  src={pokemon.image}
+                  alt={pokemon.name}
+                  className="pokemon-img"
+                />
+              </div>
+              <p># {pokemon.number}</p>
+              <h2>{pokemon.name}</h2>
+              <p> {pokemon.types.join(", ")}</p>
             </div>
-            <p># {pokemon.number}</p>
-            <h2>{pokemon.name}</h2>
-            <p> {pokemon.types.join(", ")}</p>
-          </div>
+          </Link>
         ))}
       </div>
-
       <Footer />
     </>
   );
